@@ -43,20 +43,28 @@ module.exports = (function() {
 
   function english(w) {
     let word = w.split('-');
-    let letters = word[1].split('')
+    let letters = word[word.length-1].split('')
     console.log(letters, word);
     if(vowels.indexOf(letters[0]) !== -1) {
       let englishWord = word[0];
       console.log(englishWord);
       return englishWord
     }
-    if(word.length === 2) {
-      let firstLetters = word[1].slice(0, (word[1].length-2));
+      let firstLetters = word[word.length-1].slice(0, (word[word.length-1].length-2));
       console.log(firstLetters);
+    if(word.length === 2) {
       let englishWord = firstLetters + word[0];
       console.log(englishWord);
       return englishWord;
+    } else {
+      let englishWord = firstLetters + word[0]
+      for(var i = 1; i < word.length-1; i++) {
+        englishWord += '-' + word[i];
+      }
+      console.log(englishWord);
+      return englishWord;
     }
+
   }
 
   function englishWordConcat(str) {

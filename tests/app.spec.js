@@ -14,7 +14,8 @@ describe('Pig Latin module', () => {
   it('Should have a function that translates Pig Latin to English', (done) => {
     expect(app.english('apple-ay')).to.equal('apple')
     expect(app.english('eaking-spay')).to.equal('speaking')
-    expect(app.englishWordConcat('I-ay ave-hay a-ay ookie.-cay')).to.equal('I have a cookie.')
+    expect(app.englishWordConcat('I-ay ave-hay a-ay ookie.-cay')).to.equal('I have a cookie.');
+    expect(app.englishWordConcat('ey-Thay are-ay eaking-spay ig-Latin-Pay')).to.equal('They are speaking Pig-Latin');
     done();
   })
 
