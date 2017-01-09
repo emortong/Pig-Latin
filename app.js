@@ -28,7 +28,7 @@ module.exports = (function() {
     }
   }
 
-  function wordConcat(str) {
+  function pigWordConcat(str) {
     let words = str.split(' ');
     let sentence = '';
 
@@ -41,9 +41,43 @@ module.exports = (function() {
     return sentence;
   }
 
+  function english(w) {
+    let word = w.split('-');
+    let letters = word[1].split('')
+    console.log(letters, word);
+    if(vowels.indexOf(letters[0]) !== -1) {
+      let englishWord = word[0];
+      console.log(englishWord);
+      return englishWord
+    }
+    if(word.length === 2) {
+      let firstLetters = word[1].slice(0, (word[1].length-2));
+      console.log(firstLetters);
+      let englishWord = firstLetters + word[0];
+      console.log(englishWord);
+      return englishWord;
+    }
+  }
+
+  function englishWordConcat(str) {
+    let words = str.split(' ');
+    let sentence = '';
+
+    for(var i = 0; i < words.length; i++) {
+      let englishWord = english(words[i]);
+      sentence += englishWord + ' ';
+    }
+
+    sentence = sentence.trim();
+    console.log(sentence);
+    return sentence;
+  }
+
   return {
     pigLatin,
-    wordConcat
+    pigWordConcat,
+    english,
+    englishWordConcat
   }
 
 })();
